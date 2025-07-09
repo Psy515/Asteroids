@@ -8,7 +8,7 @@ def main():
     
     clock =  pygame.time.Clock()
     
-    #dt = 0
+    dt = 0
 
     print(f"""Starting Asteroids!
 Screen width: {constants.SCREEN_WIDTH}
@@ -23,6 +23,7 @@ Screen height: {constants.SCREEN_HEIGHT}"""
                 return
         screen.fill(000000)
         player.draw(screen)
+        player.update(dt)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
