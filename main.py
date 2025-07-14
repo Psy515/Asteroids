@@ -3,6 +3,7 @@ import constants
 import player as player_obj
 import asteroid as asteroid_obj
 import asteroidfield as asteroidfield_obj
+import sys
 
 def main():
     pygame.init()
@@ -33,6 +34,10 @@ Screen height: {constants.SCREEN_HEIGHT}"""
                 return
         screen.fill("black")
         updatable.update(dt)
+        for asteroid in asteroids:
+            if player.collision(asteroid):
+                print(f"Game over!")
+                sys.exit()
         for sprite in drawable:
             sprite.draw(screen)        
         pygame.display.flip()
