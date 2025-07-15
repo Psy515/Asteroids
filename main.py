@@ -44,7 +44,7 @@ Screen height: {constants.SCREEN_HEIGHT}"""
                 sys.exit()
             for s in shot:
                 if s.collision(asteroid):
-                    asteroid.kill()
+                    asteroid.split()
                     s.kill()
                     break
         
