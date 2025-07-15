@@ -1,5 +1,4 @@
 import circleshape as circle
-import constants as const
 import pygame
 
 class Asteroid(circle.CircleShape):

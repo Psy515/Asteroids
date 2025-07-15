@@ -22,9 +22,11 @@ Screen height: {constants.SCREEN_HEIGHT}"""
     asteroids = pygame.sprite.Group()
     asteroidfield_obj.AsteroidField.containers = (updatable,)
     player_obj.Player.containers = (updatable, drawable)
+    player_obj.Shot.containers = (updatable, drawable)
     asteroid_obj.Asteroid.containers = (updatable, drawable, asteroids)
     player = player_obj.Player(constants.SCREEN_WIDTH // 2, constants.SCREEN_HEIGHT // 2)
     asteroidfield = asteroidfield_obj.AsteroidField()
+
 
 
 
