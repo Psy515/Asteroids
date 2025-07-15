@@ -20,12 +20,14 @@ Screen height: {constants.SCREEN_HEIGHT}"""
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shot = pygame.sprite.Group()
     asteroidfield_obj.AsteroidField.containers = (updatable,)
     player_obj.Player.containers = (updatable, drawable)
-    player_obj.Shot.containers = (updatable, drawable)
+    player_obj.Shot.containers = (updatable, drawable, shot)
     asteroid_obj.Asteroid.containers = (updatable, drawable, asteroids)
     player = player_obj.Player(constants.SCREEN_WIDTH // 2, constants.SCREEN_HEIGHT // 2)
     asteroidfield = asteroidfield_obj.AsteroidField()
+    
 
 
 
@@ -40,6 +42,12 @@ Screen height: {constants.SCREEN_HEIGHT}"""
             if player.collision(asteroid):
                 print(f"Game over!")
                 sys.exit()
+            for s in shot:
+                if s.collision(asteroid):
+                    asteroid.kill()
+                    s.kill()
+                    break
+        
         for sprite in drawable:
             sprite.draw(screen)        
         pygame.display.flip()
